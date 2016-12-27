@@ -68,7 +68,12 @@ function _getResultParamsValues(paramsObj) {
 
 function _sendMessageToWorker(message) {
 	var worker = _findWorkerByPid(message.workerPid);
-	worker.send(message);
+	if (worker) {
+		worker.send(message);
+	} else {
+        logger.warn('Worker does not exist ' + message.workerPid, message);
+        console.log('Worker does not exist ' + message.workerPid, message);
+	}
 }
 
 function _sendMessageToMaster(message) {
