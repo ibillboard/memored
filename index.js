@@ -71,8 +71,7 @@ function _sendMessageToWorker(message) {
 	if (worker) {
 		worker.send(message);
 	} else {
-        logger.warn('Worker does not exist ' + message.workerPid, message);
-        console.log('Worker does not exist ' + message.workerPid, message);
+        console.error('Memored warning : Worker does not exist ' + message.workerPid, message);
 	}
 }
 
