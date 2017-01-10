@@ -71,7 +71,7 @@ function _sendMessageToWorker(message) {
 	if (worker) {
 		worker.send(message);
 	} else {
-        console.error('Memored warning : Worker does not exist ' + message.workerPid, message);
+        console.error(new Date() + 'Memored warning : Worker does not exist ' + message.workerPid, message);
 	}
 }
 
